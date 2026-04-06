@@ -1,5 +1,10 @@
 const menuButton = document.querySelector(".nav-toggle");
 const navLinks = document.querySelector(".nav-links");
+const heroVideo = document.querySelector(".hero-video");
+
+if (heroVideo && window.matchMedia("(max-width: 980px)").matches) {
+  heroVideo.remove();
+}
 
 if (menuButton && navLinks) {
   menuButton.addEventListener("click", () => {
