@@ -367,9 +367,9 @@ if (recruitingSection && recruitingStage && recruitingCards.length > 0) {
 
 const autoSections = Array.from(document.querySelectorAll("main > section"));
 const isHomePageForAuto = document.body.classList.contains("home-page");
-const isDesktopViewport = window.matchMedia("(min-width: 981px)").matches;
+const enableAutoSectionScroll = false;
 
-if (!reduceMotionPreferred && isHomePageForAuto && isDesktopViewport && autoSections.length > 1) {
+if (!reduceMotionPreferred && isHomePageForAuto && enableAutoSectionScroll && autoSections.length > 1) {
   const sectionDurationMs = 10000;
   const userPauseMs = 18000;
   let activeIndex = 0;

@@ -2633,7 +2633,8 @@ footer::after,
   }
 
   .home-page .hero {
-    min-height: 100svh;
+    min-height: 100vh;
+    min-height: 100dvh;
     padding-top: calc(var(--nav-height) + 1.25rem);
     padding-bottom: 1.8rem;
     align-items: flex-start;
@@ -2641,7 +2642,8 @@ footer::after,
   }
 
   .home-page .hero .hero-grid {
-    min-height: calc(100svh - var(--nav-height) - 3.05rem);
+    min-height: calc(100vh - var(--nav-height) - 3.05rem);
+    min-height: calc(100dvh - var(--nav-height) - 3.05rem);
     align-content: center;
     gap: 1.1rem;
   }
