@@ -554,6 +554,12 @@ p {
   object-fit: cover;
   z-index: 0;
   pointer-events: none;
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.hero-video.is-playing {
+  opacity: 1;
 }
 
 .hero-video::-webkit-media-controls,
@@ -749,12 +755,20 @@ p {
   align-self: stretch;
 }
 
-.services-marquee::before {
-  content: none;
+.services-marquee::before,
+.services-marquee.hero-marquee::before,
+.hero-marquee.services-marquee::before {
+  content: none !important;
+  background: none !important;
+  display: none !important;
 }
 
-.services-marquee::after {
-  content: none;
+.services-marquee::after,
+.services-marquee.hero-marquee::after,
+.hero-marquee.services-marquee::after {
+  content: none !important;
+  background: none !important;
+  display: none !important;
   position: absolute;
   left: 0;
   right: 0;
@@ -773,6 +787,16 @@ p {
   height: 0.5px;
   background: rgba(255, 255, 255, 0.14);
   pointer-events: none;
+}
+
+.services-marquee.hero-marquee::before,
+.hero-marquee.services-marquee::before {
+  content: none !important;
+}
+
+.services-marquee.hero-marquee::after,
+.hero-marquee.services-marquee::after {
+  content: none !important;
 }
 
 .hero-marquee-track {

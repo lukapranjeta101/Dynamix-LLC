@@ -3,18 +3,29 @@ const navLinks = document.querySelector(".nav-links");
 const heroVideo = document.querySelector(".hero-video");
 
 if (heroVideo) {
+  heroVideo.removeAttribute("controls");
   heroVideo.controls = false;
   heroVideo.muted = true;
   heroVideo.defaultMuted = true;
   heroVideo.playsInline = true;
   heroVideo.loop = true;
   heroVideo.autoplay = true;
+  heroVideo.setAttribute("muted", "");
+  heroVideo.setAttribute("autoplay", "");
+  heroVideo.setAttribute("loop", "");
+  heroVideo.setAttribute("playsinline", "");
+  heroVideo.setAttribute("webkit-playsinline", "");
+  heroVideo.setAttribute("x-webkit-airplay", "deny");
+  heroVideo.setAttribute("disableremoteplayback", "");
+  heroVideo.setAttribute("disablepictureinpicture", "");
+  heroVideo.setAttribute("controlslist", "nodownload noplaybackrate nofullscreen noremoteplayback");
 
   const tryPlayHeroVideo = () => {
     const playPromise = heroVideo.play();
     if (playPromise && typeof playPromise.catch === "function") {
       playPromise.catch(() => {});
     }
+    if (!heroVideo.paused) heroVideo.classList.add("is-playing");
   };
 
   if (heroVideo.readyState >= 2) {
@@ -22,6 +33,27 @@ if (heroVideo) {
   } else {
     heroVideo.addEventListener("loadeddata", tryPlayHeroVideo, { once: true });
   }
+
+  heroVideo.addEventListener("playing", () => {
+    heroVideo.classList.add("is-playing");
+  });
+
+  let heroPlayAttempts = 0;
+  const retryPlayHeroVideo = () => {
+    if (!heroVideo.paused || heroPlayAttempts >= 12) return;
+    heroPlayAttempts += 1;
+    tryPlayHeroVideo();
+    window.setTimeout(retryPlayHeroVideo, 250);
+  };
+  retryPlayHeroVideo();
+
+  const resumeHeroVideoFromGesture = () => {
+    tryPlayHeroVideo();
+    window.removeEventListener("touchstart", resumeHeroVideoFromGesture);
+    window.removeEventListener("click", resumeHeroVideoFromGesture);
+  };
+  window.addEventListener("touchstart", resumeHeroVideoFromGesture, { passive: true });
+  window.addEventListener("click", resumeHeroVideoFromGesture);
 
   document.addEventListener("visibilitychange", () => {
     if (!document.hidden) tryPlayHeroVideo();
