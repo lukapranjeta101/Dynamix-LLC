@@ -2633,7 +2633,7 @@ footer::after,
   }
 
   .home-page .hero {
-    min-height: auto;
+    min-height: 100svh;
     padding-top: calc(var(--nav-height) + 1.25rem);
     padding-bottom: 1.8rem;
     align-items: flex-start;
@@ -2641,8 +2641,8 @@ footer::after,
   }
 
   .home-page .hero .hero-grid {
-    min-height: auto;
-    align-content: start;
+    min-height: calc(100svh - var(--nav-height) - 3.05rem);
+    align-content: center;
     gap: 1.1rem;
   }
 
