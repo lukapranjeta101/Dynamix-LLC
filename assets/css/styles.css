@@ -2535,6 +2535,92 @@ footer::after,
 }
 
 @media (max-width: 980px) {
+  .home-page .hero {
+    min-height: auto;
+    padding-top: calc(var(--nav-height) + 1.25rem);
+    padding-bottom: 1.8rem;
+    align-items: flex-start;
+    background:
+      linear-gradient(180deg, rgba(7, 12, 19, 0.72) 0%, rgba(7, 12, 19, 0.56) 55%, rgba(7, 12, 19, 0.82) 100%),
+      url("../../heroback.jpg") center / cover no-repeat;
+  }
+
+  .home-page .hero .hero-grid {
+    min-height: auto;
+    align-content: start;
+    gap: 1.1rem;
+  }
+
+  .hero-video {
+    display: none;
+  }
+
+  .hero-copy {
+    max-width: 100%;
+    gap: 0.82rem;
+  }
+
+  .hero h1,
+  .hero h2,
+  .hero h3,
+  .hero h4 {
+    font-size: clamp(1.95rem, 9.2vw, 2.7rem);
+    line-height: 1.14;
+  }
+
+  .hero-typing {
+    min-height: 0;
+    row-gap: 0.12em;
+  }
+
+  .typing-prefix {
+    white-space: normal;
+  }
+
+  .typing-word {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .workflow-visual-stage {
+    display: none;
+  }
+
+  .workflow-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .recruiting-alert-stage {
+    min-height: auto;
+    overflow: hidden;
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  .recruiting-alert-card {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    opacity: 1;
+    transform: none;
+    animation: none;
+    margin: 0;
+    padding: 0.75rem 2.9rem 0.82rem 2.7rem;
+  }
+
+  .recruiting-alert-card::before {
+    left: 0.8rem;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .recruiting-alert-card::after {
+    right: 0.8rem;
+    width: 1.7rem;
+    height: 1.7rem;
+  }
+
   .nav {
     justify-content: flex-end;
   }
@@ -2563,17 +2649,17 @@ footer::after,
   }
 
   .recruiting-visual-card {
-    min-height: 380px;
+    min-height: auto;
   }
 
   .recruiting-alert-stage {
-    min-height: 280px;
+    min-height: auto;
   }
 
   .recruiting-alert-card {
-    left: 0;
-    right: 0;
-    padding: 0.75rem 0.8rem 0.82rem;
+    left: auto;
+    right: auto;
+    padding: 0.75rem 2.9rem 0.82rem 2.7rem;
   }
 
   .recruiting-copy {
