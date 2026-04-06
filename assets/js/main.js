@@ -1,5 +1,32 @@
 const menuButton = document.querySelector(".nav-toggle");
 const navLinks = document.querySelector(".nav-links");
+const heroVideo = document.querySelector(".hero-video");
+
+if (heroVideo) {
+  heroVideo.controls = false;
+  heroVideo.muted = true;
+  heroVideo.defaultMuted = true;
+  heroVideo.playsInline = true;
+  heroVideo.loop = true;
+  heroVideo.autoplay = true;
+
+  const tryPlayHeroVideo = () => {
+    const playPromise = heroVideo.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(() => {});
+    }
+  };
+
+  if (heroVideo.readyState >= 2) {
+    tryPlayHeroVideo();
+  } else {
+    heroVideo.addEventListener("loadeddata", tryPlayHeroVideo, { once: true });
+  }
+
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) tryPlayHeroVideo();
+  });
+}
 
 if (menuButton && navLinks) {
   menuButton.addEventListener("click", () => {

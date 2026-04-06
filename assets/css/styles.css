@@ -553,6 +553,16 @@ p {
   height: 100%;
   object-fit: cover;
   z-index: 0;
+  pointer-events: none;
+}
+
+.hero-video::-webkit-media-controls,
+.hero-video::-webkit-media-controls-enclosure,
+.hero-video::-webkit-media-controls-panel,
+.hero-video::-webkit-media-controls-overlay-play-button,
+.hero-video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
 }
 
 .home-page .hero {
@@ -740,11 +750,11 @@ p {
 }
 
 .services-marquee::before {
-  background: rgba(26, 38, 52, 0.22);
+  content: none;
 }
 
 .services-marquee::after {
-  content: "";
+  content: none;
   position: absolute;
   left: 0;
   right: 0;
