@@ -1,10 +1,5 @@
 const menuButton = document.querySelector(".nav-toggle");
 const navLinks = document.querySelector(".nav-links");
-const heroVideo = document.querySelector(".hero-video");
-
-if (heroVideo && window.matchMedia("(max-width: 980px)").matches) {
-  heroVideo.remove();
-}
 
 if (menuButton && navLinks) {
   menuButton.addEventListener("click", () => {
@@ -372,8 +367,9 @@ if (recruitingSection && recruitingStage && recruitingCards.length > 0) {
 
 const autoSections = Array.from(document.querySelectorAll("main > section"));
 const isHomePageForAuto = document.body.classList.contains("home-page");
+const isDesktopViewport = window.matchMedia("(min-width: 981px)").matches;
 
-if (!reduceMotionPreferred && isHomePageForAuto && autoSections.length > 1) {
+if (!reduceMotionPreferred && isHomePageForAuto && isDesktopViewport && autoSections.length > 1) {
   const sectionDurationMs = 10000;
   const userPauseMs = 18000;
   let activeIndex = 0;
