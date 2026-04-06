@@ -554,21 +554,18 @@ p {
   object-fit: cover;
   z-index: 0;
   pointer-events: none;
-  opacity: 0;
-  transition: opacity 220ms ease;
-}
-
-.hero-video.is-playing {
-  opacity: 1;
 }
 
 .hero-video::-webkit-media-controls,
 .hero-video::-webkit-media-controls-enclosure,
 .hero-video::-webkit-media-controls-panel,
+.hero-video::-webkit-media-controls-play-button,
+.hero-video::-webkit-media-controls-fullscreen-button,
 .hero-video::-webkit-media-controls-overlay-play-button,
 .hero-video::-webkit-media-controls-start-playback-button {
   display: none !important;
   -webkit-appearance: none;
+  opacity: 0 !important;
 }
 
 .home-page .hero {
@@ -769,13 +766,6 @@ p {
   content: none !important;
   background: none !important;
   display: none !important;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 0.5px;
-  background: rgba(26, 38, 52, 0.14);
-  pointer-events: none;
 }
 
 .hero-marquee::before {
@@ -2673,6 +2663,11 @@ footer::after,
     padding-bottom: 1.8rem;
     align-items: flex-start;
     background: #000;
+  }
+
+  .home-page .hero::before,
+  .home-page .hero::after {
+    content: none;
   }
 
   .home-page .hero .hero-grid {
